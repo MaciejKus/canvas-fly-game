@@ -42,20 +42,34 @@ function drawScore() {
 window.addEventListener('keydown', keyPressed, false);
 window.addEventListener('keyup', keyUnPressed, false);
 
+//using kepad numbers seems to prevent 
+//keyboad ghosting when holding space,
+//left arr ow and up arrow
 function keyPressed(e) {
+//console.log(e.keyCode);
   switch(e.keyCode) {
     //up arrow
     case 38:
+    //8 on keypad
+    case 104:
       heroDir = 1;
       break;
+    //down
     case 40:
+    //5 on keypad
+    case 101:
       heroDir = -1;
       break; 
     //left arrow
     case 37:
+    //4 of keypad
+    case 100:
       heroSpin = 1;
       break;
+    //right arrow
     case 39:
+    //6 on keypad
+    case 102:
       heroSpin = -1;
       break;
     //space
@@ -74,11 +88,15 @@ function keyUnPressed(e) {
     //moving
     case 38:
     case 40:
+    case 104:
+    case 101:
       heroDir = 0;
       break; 
     //spinning
     case 37:
     case 39:
+    case 100:
+    case 102:
       heroSpin = 0;
       break;
     case 32:

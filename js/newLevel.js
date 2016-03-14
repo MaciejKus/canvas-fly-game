@@ -14,7 +14,7 @@ function newLevel(x) {
     clearInterval(theGameInterval);
     //quick message for player
     ctx.fillStyle = 'black';
-    ctx.fillText('New Level', canvas.width/2, canvas.height/2);
+    ctx.fillText('Ready', canvas.width/2, canvas.height/2);
     setTimeout(startNewInterval, 2000);
   }
 }

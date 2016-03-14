@@ -64,12 +64,14 @@ var hero = {
     //xDiff/yDiff is directon of movement
     // heroSize is used to slow down the direction of movemnet.
     // probably can use something other than heroSize, but it works nicely
-    this.x1 += (forwardMultiplier + heroDir) * (moveSpeed * xDiff /heroSize);
-    this.x2 += (forwardMultiplier + heroDir) * (moveSpeed * xDiff /heroSize);
-    this.x3 += (forwardMultiplier + heroDir) * (moveSpeed * xDiff /heroSize);
-    this.y1 += (forwardMultiplier + heroDir) * (moveSpeed * yDiff /heroSize);
-    this.y2 += (forwardMultiplier + heroDir) * (moveSpeed * yDiff /heroSize);
-    this.y3 += (forwardMultiplier + heroDir) * (moveSpeed * yDiff /heroSize);
+    // parseInt seems to have stopped minor bug where hero would someitmes
+    // get 'stuck' when moving through circle boudry
+    this.x1 += parseInt((forwardMultiplier + heroDir) * (moveSpeed * xDiff /heroSize));
+    this.x2 += parseInt((forwardMultiplier + heroDir) * (moveSpeed * xDiff /heroSize));
+    this.x3 += parseInt((forwardMultiplier + heroDir) * (moveSpeed * xDiff /heroSize));
+    this.y1 += parseInt((forwardMultiplier + heroDir) * (moveSpeed * yDiff /heroSize));
+    this.y2 += parseInt((forwardMultiplier + heroDir) * (moveSpeed * yDiff /heroSize));
+    this.y3 += parseInt((forwardMultiplier + heroDir) * (moveSpeed * yDiff /heroSize));
   },
 
   checkBorderCollision: function() {
